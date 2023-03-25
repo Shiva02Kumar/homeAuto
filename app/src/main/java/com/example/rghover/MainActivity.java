@@ -14,7 +14,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,7 +25,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 
 public class MainActivity extends AppCompatActivity {
     Button room1, room2;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         room1 = findViewById(R.id.button1);
         room2 = findViewById(R.id.button2);
+//        room4 = findViewById(R.id.button4);
         buzzer = findViewById(R.id.toggleButton6);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference temp = database.getReference("homeAuto/recieve");
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 T1 = findViewById(R.id.textView5);
                 T2 = findViewById(R.id.textView7);
 //                T3 = findViewById(R.id.textView8);
-                T1.setText(data.c.toString() + " C");
+                T1.setText(data.c.toString() + "° C");
                 T2.setText(data.v.toString() + " Pa");
 //                T3.setText(data.Power.toString());
                 Log.d(TAG, "ret is: ");
@@ -135,5 +138,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+
+        ImageView door = findViewById(R.id.imageView2);
+        door.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent = new Intent(MainActivity.this, GateActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }
+        );}
+
 }
