@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static class PhysicalData {
-        public Long Temperature;
-        public Long Pressure;
-        public Long Power;
+        public Long c;
+        public Long v;
+//        public Long Power;
     }
 
     @Override
@@ -62,21 +62,21 @@ public class MainActivity extends AppCompatActivity {
         room2 = findViewById(R.id.button2);
         buzzer = findViewById(R.id.toggleButton6);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference temp = database.getReference("PhysicalData");
+        DatabaseReference temp = database.getReference("homeAuto/recieve");
         temp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 PhysicalData data = dataSnapshot.getValue(PhysicalData.class);
-                System.out.println("temp = " + data.Temperature + " " + data.Power + " " + data.Pressure);
+                System.out.println("temp = " + data.c + " " + data.v);
                 TextView T1, T2, T3;
                 T1 = findViewById(R.id.textView5);
                 T2 = findViewById(R.id.textView7);
-                T3 = findViewById(R.id.textView8);
-                T1.setText(data.Temperature.toString());
-                T2.setText(data.Pressure.toString());
-                T3.setText(data.Power.toString());
+//                T3 = findViewById(R.id.textView8);
+                T1.setText(data.c.toString() + " C");
+                T2.setText(data.v.toString() + " Pa");
+//                T3.setText(data.Power.toString());
                 Log.d(TAG, "ret is: ");
             }
 

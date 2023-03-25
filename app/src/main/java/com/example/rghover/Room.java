@@ -20,7 +20,7 @@ public class Room extends AppCompatActivity {
 
     ToggleButton button1, button2;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("toggleData");
+    DatabaseReference myRef = database.getReference("homeAuto/send");
     String Control = "0000";
     protected void savedata() {
         myRef.setValue(Control);
@@ -30,21 +30,21 @@ public class Room extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
-        DatabaseReference temp = database.getReference("PhysicalData");
+        DatabaseReference temp = database.getReference("homeAuto/recieve");
         temp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 MainActivity.PhysicalData data = dataSnapshot.getValue(MainActivity.PhysicalData.class);
-                System.out.println("temp = " + data.Temperature + " " + data.Power + " " + data.Pressure);
+                System.out.println("temp = " + data.c + " " + data.v);
                 TextView T1, T2, T3;
                 T1 = findViewById(R.id.textView5);
                 T2 = findViewById(R.id.textView7);
-                T3 = findViewById(R.id.textView8);
-                T1.setText(data.Temperature.toString());
-                T2.setText(data.Pressure.toString());
-                T3.setText(data.Power.toString());
+//                T3 = findViewById(R.id.textView8);
+                T1.setText(data.c.toString() + " C");
+                T2.setText(data.v.toString() + " Pa");
+//                T3.setText(data.Power.toString());
                 Log.d(TAG, "ret is: ");
             }
 
