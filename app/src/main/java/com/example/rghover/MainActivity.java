@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 import com.google.firebase.database.DataSnapshot;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         room1 = findViewById(R.id.button1);
         room2 = findViewById(R.id.button2);
+//        room4 = findViewById(R.id.button4);
         buzzer = findViewById(R.id.toggleButton6);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference temp = database.getReference("homeAuto/recieve");
