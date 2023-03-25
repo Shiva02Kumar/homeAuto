@@ -2,11 +2,13 @@ package com.example.rghover;
 
 import static android.content.ContentValues.TAG;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 import com.google.firebase.database.DataSnapshot;
@@ -14,6 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 public class Room extends AppCompatActivity {
 
@@ -32,14 +36,14 @@ public class Room extends AppCompatActivity {
         int room = getIntent().getIntExtra("roomnum", 0);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Control = dataSnapshot.getValue().toString();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Control = Objects.requireNonNull(dataSnapshot.getValue()).toString();
                 System.out.println(Control);
                 Log.d(TAG, "ret is: " + Control);
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
@@ -76,5 +80,7 @@ public class Room extends AppCompatActivity {
                 }
             }
         });
+        ImageView back = findViewById(R.id.imageView);
+        back.setOnClickListener(v -> onBackPressed());
     }
 }

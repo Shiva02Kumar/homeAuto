@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 import com.google.firebase.database.DataSnapshot;
@@ -104,6 +105,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        ImageView door = findViewById(R.id.imageView2);
+        door.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent = new Intent(MainActivity.this, GateActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }
+        );}
 
 //        room4.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -279,5 +290,5 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-    }
+
 }
