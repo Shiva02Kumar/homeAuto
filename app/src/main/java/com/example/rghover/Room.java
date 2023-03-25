@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -24,9 +25,9 @@ public class Room extends AppCompatActivity {
     ToggleButton button1, button2;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("homeAuto/send");
-    String Control = "0000";
+    String Control = "";
     protected void savedata() {
-        myRef.setValue(Control);
+        if (Control!="")myRef.setValue(Control);
     }
 
     @Override
@@ -45,7 +46,7 @@ public class Room extends AppCompatActivity {
                 T1 = findViewById(R.id.textView5);
                 T2 = findViewById(R.id.textView7);
 //                T3 = findViewById(R.id.textView8);
-                T1.setText(data.c.toString() + " C");
+                T1.setText(data.c.toString() + "° C");
                 T2.setText(data.v.toString() + " Pa");
 //                T3.setText(data.Power.toString());
                 Log.d(TAG, "ret is: ");
@@ -61,14 +62,14 @@ public class Room extends AppCompatActivity {
         int room = getIntent().getIntExtra("roomnum", 0);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Control = dataSnapshot.getValue().toString();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Control = Objects.requireNonNull(dataSnapshot.getValue()).toString();
                 System.out.println(Control);
                 Log.d(TAG, "ret is: " + Control);
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
             }

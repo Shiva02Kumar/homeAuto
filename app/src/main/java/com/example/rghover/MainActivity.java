@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import android.widget.ToggleButton;
 
 import com.google.firebase.database.DataSnapshot;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 T1 = findViewById(R.id.textView5);
                 T2 = findViewById(R.id.textView7);
 //                T3 = findViewById(R.id.textView8);
-                T1.setText(data.c.toString() + " C");
+                T1.setText(data.c.toString() + "° C");
                 T2.setText(data.v.toString() + " Pa");
 //                T3.setText(data.Power.toString());
                 Log.d(TAG, "ret is: ");
@@ -146,180 +147,4 @@ public class MainActivity extends AppCompatActivity {
                                 }
         );}
 
-//        room4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference myRef = database.getReference("Pir");
-//                myRef.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        // This method is called once with the initial value and again
-//                        // whenever data at this location is updated.
-//                        String Pir = dataSnapshot.getValue().toString();
-//                        System.out.println("temp = " + Pir);
-//                        Log.d(TAG, "ret is: " + Pir);
-//                        if (Pir == "1") {
-//                            NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "BuzzerNoti")
-//                                    .setSmallIcon(R.drawable.hoverrr)
-//                                    .setContentTitle("Movement Detected")
-//                                    .setContentText("Something is moving")
-//                                    .setAutoCancel(true)
-//                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-//
-//                            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(MainActivity.this);
-//
-//                            notificationManager.notify(1, builder.build());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError error) {
-//                        // Failed to read value
-//                        Log.w(TAG, "Failed to read value.", error.toException());
-//                    }
-//                });
-//            }
-//        });
-//        button1.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
-//                    Control = '1' + Control.substring(1);
-//                    System.out.println(Control);
-//                }
-//                else if (motionEvent.getAction() == MotionEvent.ACTION_UP){
-//                    Control = '0' + Control.substring(1);
-//                    System.out.println(Control);
-//                }
-//                return false;
-//            }
-//        });
-
-
-//        button1 = findViewById(R.id.toggleButton);
-//        button2 = findViewById(R.id.toggleButton2);
-//        button3 = findViewById(R.id.toggleButton3);
-//        button4 = findViewById(R.id.toggleButton4);
-//        button1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (button1.isChecked()) {
-//                    Control = Control.substring(0, 0) + '1' + Control.substring(1);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 0) + '0' + Control.substring(1);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-//        button2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (button2.isChecked()) {
-//                    Control = Control.substring(0, 1) + '1' + Control.substring(2);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 1) + '0' + Control.substring(2);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-//        button3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (button3.isChecked()) {
-//                    Control = Control.substring(0, 2) + '1' + Control.substring(3);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 2) + '0' + Control.substring(3);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-//        button4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (button4.isChecked()) {
-//                    Control = Control.substring(0, 3) + '1' + Control.substring(4);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 3) + '0' + Control.substring(4);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-
-//        switch1 = findViewById(R.id.switch2);
-//        switch2 = findViewById(R.id.switch3);
-//        switch3 = findViewById(R.id.switch4);
-//        switch4 = findViewById(R.id.switch5);
-//
-//        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b) {
-//                    Control = Control.substring(0, 0) + '1' + Control.substring(1);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 0) + '0' + Control.substring(1);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-//        switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b) {
-//                    Control = Control.substring(0, 1) + '1' + Control.substring(2);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 1) + '0' + Control.substring(2);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-//        switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b) {
-//                    Control = Control.substring(0, 2) + '1' + Control.substring(3);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 2) + '0' + Control.substring(3);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-//        switch4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b) {
-//                    Control = Control.substring(0, 3) + '1' + Control.substring(4);
-//                    System.out.println(Control);
-//                    savedata();
-//                } else {
-//                    Control = Control.substring(0, 3) + '0' + Control.substring(4);
-//                    System.out.println(Control);
-//                    savedata();
-//                }
-//            }
-//        });
-
-
-    }
 }
