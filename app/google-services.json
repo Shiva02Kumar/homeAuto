@@ -1,33 +1,63 @@
 {
   "project_info": {
-    "project_number": "394202601866",
-    "project_id": "rghover-db065",
-    "storage_bucket": "rghover-db065.appspot.com"
+    "project_number": "260793717708",
+    "firebase_url": "https://trackio-rg-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "trackio-rg",
+    "storage_bucket": "trackio-rg.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:394202601866:android:abbc2f76bcaf1cd4e7d073",
+        "mobilesdk_app_id": "1:260793717708:android:f826b6bc771ba346124369",
         "android_client_info": {
           "package_name": "com.example.rghover"
         }
       },
       "oauth_client": [
         {
-          "client_id": "394202601866-r2ki9c8i1tfvrco8fuvqov2o550ntcs8.apps.googleusercontent.com",
+          "client_id": "260793717708-i20e5al2lr189mug5vsrtj2r7elgm57s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAjEQYqjUTImeofU90_cNsMW1N6YNzzFvQ"
+          "current_key": "AIzaSyBOqtMqUg5c8P_jo3-XZYJfchZyZBagO2o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "394202601866-r2ki9c8i1tfvrco8fuvqov2o550ntcs8.apps.googleusercontent.com",
+              "client_id": "260793717708-i20e5al2lr189mug5vsrtj2r7elgm57s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260793717708:android:b44c93bc9579c00e124369",
+        "android_client_info": {
+          "package_name": "io.github.appsrc.trackio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260793717708-i20e5al2lr189mug5vsrtj2r7elgm57s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOqtMqUg5c8P_jo3-XZYJfchZyZBagO2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260793717708-i20e5al2lr189mug5vsrtj2r7elgm57s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
